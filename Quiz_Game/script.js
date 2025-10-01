@@ -29,40 +29,40 @@ const quizQuestions = [
 
     },
     {
-        question: "Which language you learning?",
+        question: "Which of the following is the smallest unit of data in a computer?",
         answers: [
-            { text: "JS", correct: true },
-            { text: "Mars", correct: false },
-            { text: "Jupiter", correct: false },
-            { text: "Venus", correct: false },
+            { text: "Byte", correct: false },
+            { text: "Bit", correct: true },
+            { text: "Nibble", correct: false },
+            { text: "Word", correct: false },
         ],
 
     },
     {
-        question: "Which game you play?",
+        question: "Which layer of the OSI model is responsible for end-to-end communication and error recovery?",
         answers: [
-            { text: "Venus", correct: false },
-            { text: "Mars", correct: false },
-            { text: "Jupiter", correct: false },
-            { text: "Vollyball", correct: true },
+            { text: "Network Layer", correct: false },
+            { text: "Transport Layer", correct: true },
+            { text: "Session Layer", correct: false },
+            { text: "Data Link Layer", correct: false },
         ],
     },
     {
-        question: "Where is your college?",
+        question: "The capital of Japan is?",
         answers: [
-            { text: "Venus", correct: false },
-            { text: "Earth", correct: true },
-            { text: "Jupiter", correct: false },
-            { text: "Venus", correct: false },
+            { text: "Beijing", correct: false },
+            { text: "Seoul", correct: false },
+            { text: "Tokyo", correct: true },
+            { text: "Bangkok", correct: false },
         ],
     },
     {
-        question: "What is your course?",
+        question: "In Java, which keyword is used to create a subclass?",
         answers: [
-            { text: "BCA", correct: true },
-            { text: "Mars", correct: false },
-            { text: "Jupiter", correct: false },
-            { text: "Venus", correct: false },
+            { text: "implement", correct: false },
+            { text: "inherit", correct: false },
+            { text: "extends", correct: true },
+            { text: "super", correct: false },
         ],
     },
 ]
@@ -82,14 +82,13 @@ console.log("it");
 
 
 startButton.addEventListener("click", startQuiz)
-restartButton.addEventListener("click",  restartQuiz);
+restartButton.addEventListener("click", restartQuiz);
 
 function startQuiz() {
     console.log("quiz stared")
     currentQuestionIndex = 0;
-     score = 0;
+    score = 0;
 
-    //  score.textContent = 0
     startScreen.classList.remove("active");
     quizScreen.classList.add("active");
 
@@ -111,7 +110,7 @@ function showQuestion() {
 
     questionText.textContent = currentQuestion.question
     console.log(progressPercent);
-    
+
 
     // todo: explain this in a second 
     answersContainer.innerHTML = "";
@@ -143,28 +142,26 @@ function selectAnswer(event) {
     Array.from(answersContainer.children).forEach(button => {
         if (button.dataset.correct === 'true') {
             button.classList.add("correct")
-        } else if (button === selectButton){
-            button.classList.add("incorrect") 
+        } else if (button === selectButton) {
+            button.classList.add("incorrect")
         }
-        // }else {
-        //     button.classList.add("incorrect")
-        // } 
+
     });
-    if(isCorrect){
+    if (isCorrect) {
         score++;
         finalScoreSpan.textContent = score;
     }
-        setTimeout(() => {
-            currentQuestionIndex++;
-            // check if there are more questions or if the quiz is over 
-            if (currentQuestionIndex < quizQuestions.length) {
-                showQuestion()
-            } else {
-                showResults()
-            }
+    setTimeout(() => {
+        currentQuestionIndex++;
+        // check if there are more questions or if the quiz is over 
+        if (currentQuestionIndex < quizQuestions.length) {
+            showQuestion()
+        } else {
+            showResults()
+        }
 
-        }, 1000)
-    
+    }, 1000)
+
 }
 
 function showResults() {
@@ -180,7 +177,7 @@ function showResults() {
         resultMessage.textContent = "Great job! You know your stuff!";
     } else if (percentage >= 60) {
         resultMessage.textContent = "Great effort! Keep learning!";
-    } else if (percentage >= 40) { 
+    } else if (percentage >= 40) {
         resultMessage.textContent = "Not bad! Try again to improve!";
     } else {
         resultMessage.textContent = "Keep studying! You'll get better!"
@@ -188,7 +185,7 @@ function showResults() {
 
 }
 function restartQuiz() {
-   resultScreen.classList.remove("active");
+    resultScreen.classList.remove("active");
 
 
     startQuiz();
