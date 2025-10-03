@@ -1,1 +1,2 @@
-In this we created a quiz which shows your score based on your anwers and give you feedback on the basis of your result.
+In this project repositry I will make some projects that helps to build logics in the JavaScript.
+
